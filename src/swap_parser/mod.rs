@@ -7,11 +7,11 @@ use crate::tx_parser::Transfer;
 
 #[derive(Debug)]
 pub struct Swap {
-    Wallet: String,
-    TokenIn: String,
-    TokenOut: String,
-    AmountIn: f64,
-    AmountOut: f64,
+    wallet: String,
+    token_in: String,
+    token_out: String,
+    amount_in: f64,
+    amount_out: f64,
 }
 
 pub fn parse_swaps(
@@ -66,10 +66,10 @@ pub fn process_transfer(
     let token_out = transfer.token_balance_diff.mint.clone();
 
     Some(Swap{
-        Wallet: wallet,
-        TokenIn: token_in.to_string(),
-        TokenOut: token_out.to_string(),
-        AmountIn: next_transfer.token_balance_diff.token_amount,
-        AmountOut: transfer.token_balance_diff.token_amount,
+        wallet,
+        token_in: token_in.to_string(),
+        token_out: token_out.to_string(),
+        amount_in: next_transfer.token_balance_diff.token_amount,
+        amount_out: transfer.token_balance_diff.token_amount,
     })
 }

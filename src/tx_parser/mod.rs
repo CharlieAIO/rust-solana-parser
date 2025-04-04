@@ -8,19 +8,17 @@ use solana_transaction_status::{
 };
 use spl_token::instruction::TokenInstruction;
 use std::collections::HashMap;
-use std::fmt::Debug;
 use std::str::FromStr;
 use std::string::ToString;
 use crate::RAYDIUM_V4;
 
-#[derive(Debug, Clone)]
+#[derive(Clone)]
 pub struct TokenBalanceDiff {
     pub token_amount: f64,
     pub mint: String,
     pub decimals: u8,
 }
 
-#[derive(Debug)]
 pub struct Transfer {
     pub instruction_program_id: Option<Pubkey>,
     pub instruction_input_accounts: Option<Vec<u8>>,

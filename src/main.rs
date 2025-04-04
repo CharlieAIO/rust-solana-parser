@@ -11,21 +11,13 @@ use solana_transaction_status::{
 };
 use std::fmt::Debug;
 use std::str::FromStr;
-
+use crate::tx_parser::TokenBalanceDiff;
 
 const RAYDIUM_V4:&str = "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8";
-
-
 const RPC_URL: &str = "https://api.mainnet-beta.solana.com";
 
-#[derive(Debug, Clone)]
-struct TokenBalanceDiff {
-    token_amount: f64,
-    mint: String,
-    decimals: u8,
-}
 
-#[derive(Debug)]
+
 struct Transfer {
     token_balance_diff: TokenBalanceDiff,
     to_user_account: Pubkey,
